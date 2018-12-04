@@ -17,7 +17,7 @@ namespace Ikkanwelzijn.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private ikwzEntities db = new ikwzEntities();
         public AccountController()
         {
         }
