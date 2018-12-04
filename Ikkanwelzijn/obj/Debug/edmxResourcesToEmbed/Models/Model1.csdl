@@ -14,35 +14,14 @@
     <Key>
       <PropertyRef Name="activiteitid" />
     </Key>
+    <Property Name="activiteitid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="activiteitnaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="activiteitid" Type="Int32" Nullable="false" />
     <Property Name="activiteitdatum" Type="DateTime" Precision="0" />
     <Property Name="activiteitplaats" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="activiteitbeschrijving" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="activiteiturl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="organisatie_organisatieid" Type="Int32" Nullable="false" />
     <Property Name="clienten_clientid" Type="Int32" Nullable="false" />
-    <Property Name="analogeclienten_briefnummer" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="analogeclienten" Relationship="Self.activiteiten_analogeclienten_fk" FromRole="activiteiten" ToRole="analogeclienten" />
+    <Property Name="organisatie_organisatieid" Type="Int32" Nullable="false" />
     <NavigationProperty Name="clienten" Relationship="Self.activiteiten_clienten_fk" FromRole="activiteiten" ToRole="clienten" />
     <NavigationProperty Name="organisatie" Relationship="Self.activiteiten_organisatie_fk" FromRole="activiteiten" ToRole="organisatie" />
-  </EntityType>
-  <EntityType Name="analogeclienten">
-    <Key>
-      <PropertyRef Name="briefnummer" />
-    </Key>
-    <Property Name="briefnummer" Type="Int32" Nullable="false" />
-    <Property Name="voorkeur1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="voorkeur2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="voorkeur3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="voornaamanaloog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="achternaamanaloog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="tussenvoegselanaloog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="adresanaloog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="woonplaatsanaloog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="organisatie_organisatieid" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="activiteiten" Relationship="Self.activiteiten_analogeclienten_fk" FromRole="analogeclienten" ToRole="activiteiten" />
-    <NavigationProperty Name="organisatie" Relationship="Self.analogeclienten_organisatie_fk" FromRole="analogeclienten" ToRole="organisatie" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
@@ -97,46 +76,40 @@
     <Key>
       <PropertyRef Name="clientid" />
     </Key>
-    <Property Name="clientid" Type="Int32" Nullable="false" />
-    <Property Name="clientnaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="clientachternaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="clientvoornaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="clientachternaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="clienttussenvoegsel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="clientwoonplaats" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="clientid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="clientadres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="clientgeslacht" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="organisatie_organisatieid" Type="Int32" Nullable="false" />
-    <Property Name="voorkeur1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="voorkeur2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="voorkeur3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="clientwoonplaats" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="organisatie_organisatieid" Type="Int32" />
     <NavigationProperty Name="activiteiten" Relationship="Self.activiteiten_clienten_fk" FromRole="clienten" ToRole="activiteiten" />
     <NavigationProperty Name="organisatie" Relationship="Self.clienten_organisatie_fk" FromRole="clienten" ToRole="organisatie" />
+    <NavigationProperty Name="voorkeuren" Relationship="Self.voorkeuren_clienten_fk" FromRole="clienten" ToRole="voorkeuren" />
   </EntityType>
   <EntityType Name="organisatie">
     <Key>
       <PropertyRef Name="organisatieid" />
     </Key>
     <Property Name="organisatieid" Type="Int32" Nullable="false" />
-    <Property Name="organisatienaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="organisatieplaats" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="organisatieadres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="organisatienaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="organisatieplaats" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="clientid" Type="Int32" />
-    <Property Name="briefnummer" Type="Int32" />
+    <Property Name="activiteitid" Type="Int32" />
     <NavigationProperty Name="activiteiten" Relationship="Self.activiteiten_organisatie_fk" FromRole="organisatie" ToRole="activiteiten" />
-    <NavigationProperty Name="analogeclienten" Relationship="Self.analogeclienten_organisatie_fk" FromRole="organisatie" ToRole="analogeclienten" />
     <NavigationProperty Name="clienten" Relationship="Self.clienten_organisatie_fk" FromRole="organisatie" ToRole="clienten" />
   </EntityType>
-  <Association Name="activiteiten_analogeclienten_fk">
-    <End Role="analogeclienten" Type="Self.analogeclienten" Multiplicity="1" />
-    <End Role="activiteiten" Type="Self.activiteiten" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="analogeclienten">
-        <PropertyRef Name="briefnummer" />
-      </Principal>
-      <Dependent Role="activiteiten">
-        <PropertyRef Name="analogeclienten_briefnummer" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <EntityType Name="voorkeuren">
+    <Key>
+      <PropertyRef Name="clienten_clientid" />
+    </Key>
+    <Property Name="voorkeur1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="voorkeur2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="voorkeur3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="clientid" Type="Int32" />
+    <Property Name="clienten_clientid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="clienten" Relationship="Self.voorkeuren_clienten_fk" FromRole="voorkeuren" ToRole="clienten" />
+  </EntityType>
   <Association Name="activiteiten_clienten_fk">
     <End Role="clienten" Type="Self.clienten" Multiplicity="1" />
     <End Role="activiteiten" Type="Self.activiteiten" Multiplicity="*" />
@@ -157,18 +130,6 @@
         <PropertyRef Name="organisatieid" />
       </Principal>
       <Dependent Role="activiteiten">
-        <PropertyRef Name="organisatie_organisatieid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="analogeclienten_organisatie_fk">
-    <End Role="organisatie" Type="Self.organisatie" Multiplicity="1" />
-    <End Role="analogeclienten" Type="Self.analogeclienten" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="organisatie">
-        <PropertyRef Name="organisatieid" />
-      </Principal>
-      <Dependent Role="analogeclienten">
         <PropertyRef Name="organisatie_organisatieid" />
       </Dependent>
     </ReferentialConstraint>
@@ -202,7 +163,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="clienten_organisatie_fk">
-    <End Role="organisatie" Type="Self.organisatie" Multiplicity="1" />
+    <End Role="organisatie" Type="Self.organisatie" Multiplicity="0..1" />
     <End Role="clienten" Type="Self.clienten" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="organisatie">
@@ -213,24 +174,32 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="voorkeuren_clienten_fk">
+    <End Role="clienten" Type="Self.clienten" Multiplicity="1" />
+    <End Role="voorkeuren" Type="Self.voorkeuren" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="clienten">
+        <PropertyRef Name="clientid" />
+      </Principal>
+      <Dependent Role="voorkeuren">
+        <PropertyRef Name="clienten_clientid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="AspNetUserRoles">
     <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="ikwzEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="ikwzEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
     <EntitySet Name="activiteiten" EntityType="Self.activiteiten" />
-    <EntitySet Name="analogeclienten" EntityType="Self.analogeclienten" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
     <EntitySet Name="clienten" EntityType="Self.clienten" />
     <EntitySet Name="organisatie" EntityType="Self.organisatie" />
-    <AssociationSet Name="activiteiten_analogeclienten_fk" Association="Self.activiteiten_analogeclienten_fk">
-      <End Role="analogeclienten" EntitySet="analogeclienten" />
-      <End Role="activiteiten" EntitySet="activiteiten" />
-    </AssociationSet>
+    <EntitySet Name="voorkeuren" EntityType="Self.voorkeuren" />
     <AssociationSet Name="activiteiten_clienten_fk" Association="Self.activiteiten_clienten_fk">
       <End Role="clienten" EntitySet="clienten" />
       <End Role="activiteiten" EntitySet="activiteiten" />
@@ -238,10 +207,6 @@
     <AssociationSet Name="activiteiten_organisatie_fk" Association="Self.activiteiten_organisatie_fk">
       <End Role="organisatie" EntitySet="organisatie" />
       <End Role="activiteiten" EntitySet="activiteiten" />
-    </AssociationSet>
-    <AssociationSet Name="analogeclienten_organisatie_fk" Association="Self.analogeclienten_organisatie_fk">
-      <End Role="organisatie" EntitySet="organisatie" />
-      <End Role="analogeclienten" EntitySet="analogeclienten" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -254,6 +219,10 @@
     <AssociationSet Name="clienten_organisatie_fk" Association="Self.clienten_organisatie_fk">
       <End Role="organisatie" EntitySet="organisatie" />
       <End Role="clienten" EntitySet="clienten" />
+    </AssociationSet>
+    <AssociationSet Name="voorkeuren_clienten_fk" Association="Self.voorkeuren_clienten_fk">
+      <End Role="clienten" EntitySet="clienten" />
+      <End Role="voorkeuren" EntitySet="voorkeuren" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />

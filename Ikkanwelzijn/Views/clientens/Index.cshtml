@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Ikkanwelzijn.Models.clienten>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.clientnaam)
+                @Html.DisplayNameFor(model => model.clientvoornaam)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.clientachternaam)
@@ -31,19 +31,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.clientadres)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.clientgeslacht)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.voorkeur1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.voorkeur2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.voorkeur3)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.organisatie.organisatienaam)
             </th>
@@ -53,7 +40,7 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.clientnaam)
+                @Html.DisplayFor(modelItem => item.clientvoornaam)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.clientachternaam)
@@ -66,18 +53,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.clientadres)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.clientgeslacht)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.voorkeur1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.voorkeur2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.voorkeur3)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.organisatie.organisatienaam)

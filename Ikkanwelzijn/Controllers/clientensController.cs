@@ -12,7 +12,7 @@ namespace Ikkanwelzijn.Controllers
 {
     public class clientensController : Controller
     {
-        private ikwzEntities db = new ikwzEntities();
+        private ikwzEntities1 db = new ikwzEntities1();
 
         // GET: clientens
         public ActionResult Index()

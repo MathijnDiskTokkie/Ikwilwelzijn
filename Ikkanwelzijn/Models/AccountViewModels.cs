@@ -70,6 +70,33 @@ namespace Ikkanwelzijn.Models
         public string Email { get; set; }
 
         [Required]
+        [StringLength(255)]
+        [Display(Name = "Voornaam")]
+        public string clientnaam { get; set; }
+
+        [StringLength(255)]
+        [Display(Name = "Tussenvoegsel")]
+        public string clienttussenvoegsel { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        [Display(Name = "Achternaam")]
+        public string clientachternaam { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        [Display(Name = "Woonplaats")]
+        public string clientwoonplaats { get; set; }
+
+        [StringLength(255)]
+        [Display(Name = "Adres")]
+        public string clientadres { get; set; }
+
+        [StringLength(1)]
+        [Display(Name = "Geslacht")]
+        public string clientgeslacht { get; set; }
+
+        [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]

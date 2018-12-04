@@ -19,21 +19,28 @@ namespace Ikkanwelzijn.Models
         {
             this.activiteiten = new HashSet<activiteiten>();
         }
-    
-        public int clientid { get; set; }
-        public string clientnaam { get; set; }
+        
+        public clienten(string _clientvoornaam, string _clientachternaam, string _clienttussenvoegsel, string _clientadres,
+            string _clientwoonplaats)
+        {
+            this.clientvoornaam = _clientvoornaam;
+            this.clientachternaam = _clientachternaam;
+            this.clienttussenvoegsel = _clienttussenvoegsel;
+            this.clientadres = _clientadres;
+            this.clientwoonplaats = _clientwoonplaats;
+        }
+
+        public string clientvoornaam { get; set; }
         public string clientachternaam { get; set; }
         public string clienttussenvoegsel { get; set; }
-        public string clientwoonplaats { get; set; }
+        public int clientid { get; set; }
         public string clientadres { get; set; }
-        public string clientgeslacht { get; set; }
-        public int organisatie_organisatieid { get; set; }
-        public string voorkeur1 { get; set; }
-        public string voorkeur2 { get; set; }
-        public string voorkeur3 { get; set; }
+        public string clientwoonplaats { get; set; }
+        public Nullable<int> organisatie_organisatieid { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<activiteiten> activiteiten { get; set; }
         public virtual organisatie organisatie { get; set; }
+        public virtual voorkeuren voorkeuren { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace Ikkanwelzijn.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ikwzEntities1 db = new ikwzEntities1();
 
         public AccountController()
         {
@@ -149,12 +150,18 @@ namespace Ikkanwelzijn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var client = new clienten(model.clientnaam, model.clientachternaam, 
+                        model.clienttussenvoegsel, model.clientadres, model.clientwoonplaats);
+                    UserManager.AddToRole(user.Id, "Cliënt");
+                    db.clienten.Add(client);
+                    db.SaveChanges();
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

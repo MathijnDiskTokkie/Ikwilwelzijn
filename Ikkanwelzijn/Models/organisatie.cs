@@ -18,21 +18,17 @@ namespace Ikkanwelzijn.Models
         public organisatie()
         {
             this.activiteiten = new HashSet<activiteiten>();
-            this.analogeclienten = new HashSet<analogeclienten>();
             this.clienten = new HashSet<clienten>();
         }
     
         public int organisatieid { get; set; }
         public string organisatienaam { get; set; }
         public string organisatieplaats { get; set; }
-        public string organisatieadres { get; set; }
         public Nullable<int> clientid { get; set; }
-        public Nullable<int> briefnummer { get; set; }
+        public Nullable<int> activiteitid { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<activiteiten> activiteiten { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<analogeclienten> analogeclienten { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<clienten> clienten { get; set; }
     }

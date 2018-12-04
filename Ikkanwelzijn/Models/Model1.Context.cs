@@ -13,10 +13,10 @@ namespace Ikkanwelzijn.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ikwzEntities : DbContext
+    public partial class ikwzEntities1 : DbContext
     {
-        public ikwzEntities()
-            : base("name=ikwzEntities")
+        public ikwzEntities1()
+            : base("name=ikwzEntities1")
         {
         }
     
@@ -27,12 +27,12 @@ namespace Ikkanwelzijn.Models
     
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<activiteiten> activiteiten { get; set; }
-        public virtual DbSet<analogeclienten> analogeclienten { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<clienten> clienten { get; set; }
         public virtual DbSet<organisatie> organisatie { get; set; }
+        public virtual DbSet<voorkeuren> voorkeuren { get; set; }
     }
 }

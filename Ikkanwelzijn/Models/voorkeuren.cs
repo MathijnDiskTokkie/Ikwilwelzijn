@@ -12,16 +12,14 @@ namespace Ikkanwelzijn.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class activiteiten
+    public partial class voorkeuren
     {
-        public int activiteitid { get; set; }
-        public string activiteitnaam { get; set; }
-        public Nullable<System.DateTime> activiteitdatum { get; set; }
-        public string activiteitplaats { get; set; }
+        public string voorkeur1 { get; set; }
+        public string voorkeur2 { get; set; }
+        public string voorkeur3 { get; set; }
+        public Nullable<int> clientid { get; set; }
         public int clienten_clientid { get; set; }
-        public int organisatie_organisatieid { get; set; }
     
         public virtual clienten clienten { get; set; }
-        public virtual organisatie organisatie { get; set; }
     }
 }

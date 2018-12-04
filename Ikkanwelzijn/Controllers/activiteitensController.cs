@@ -12,12 +12,12 @@ namespace Ikkanwelzijn.Controllers
 {
     public class activiteitensController : Controller
     {
-        private ikwzEntities db = new ikwzEntities();
+        private ikwzEntities1 db = new ikwzEntities1();
 
         // GET: activiteitens
         public ActionResult Index()
         {
-            var activiteiten = db.activiteiten.Include(a => a.analogeclienten).Include(a => a.clienten).Include(a => a.organisatie);
+            var activiteiten = db.activiteiten.Include(a => a.clienten).Include(a => a.organisatie);
             return View(activiteiten.ToList());
         }
 
@@ -39,7 +39,6 @@ namespace Ikkanwelzijn.Controllers
         // GET: activiteitens/Create
         public ActionResult Create()
         {
-            ViewBag.analogeclienten_briefnummer = new SelectList(db.analogeclienten, "briefnummer", "voorkeur1");
             ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientnaam");
             ViewBag.organisatie_organisatieid = new SelectList(db.organisatie, "organisatieid", "organisatienaam");
             return View();
@@ -59,7 +58,6 @@ namespace Ikkanwelzijn.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.analogeclienten_briefnummer = new SelectList(db.analogeclienten, "briefnummer", "voorkeur1", activiteiten.analogeclienten_briefnummer);
             ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientnaam", activiteiten.clienten_clientid);
             ViewBag.organisatie_organisatieid = new SelectList(db.organisatie, "organisatieid", "organisatienaam", activiteiten.organisatie_organisatieid);
             return View(activiteiten);
@@ -77,7 +75,6 @@ namespace Ikkanwelzijn.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.analogeclienten_briefnummer = new SelectList(db.analogeclienten, "briefnummer", "voorkeur1", activiteiten.analogeclienten_briefnummer);
             ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientnaam", activiteiten.clienten_clientid);
             ViewBag.organisatie_organisatieid = new SelectList(db.organisatie, "organisatieid", "organisatienaam", activiteiten.organisatie_organisatieid);
             return View(activiteiten);
@@ -96,7 +93,6 @@ namespace Ikkanwelzijn.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.analogeclienten_briefnummer = new SelectList(db.analogeclienten, "briefnummer", "voorkeur1", activiteiten.analogeclienten_briefnummer);
             ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientnaam", activiteiten.clienten_clientid);
             ViewBag.organisatie_organisatieid = new SelectList(db.organisatie, "organisatieid", "organisatienaam", activiteiten.organisatie_organisatieid);
             return View(activiteiten);

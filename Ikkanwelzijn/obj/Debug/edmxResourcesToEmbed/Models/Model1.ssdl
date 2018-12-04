@@ -14,29 +14,11 @@
     <Key>
       <PropertyRef Name="activiteitid" />
     </Key>
+    <Property Name="activiteitid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="activiteitnaam" Type="varchar" MaxLength="255" />
-    <Property Name="activiteitid" Type="int" Nullable="false" />
     <Property Name="activiteitdatum" Type="date" />
     <Property Name="activiteitplaats" Type="varchar" MaxLength="255" />
-    <Property Name="activiteitbeschrijving" Type="varchar" MaxLength="255" />
-    <Property Name="activiteiturl" Type="varchar" MaxLength="255" />
-    <Property Name="organisatie_organisatieid" Type="int" Nullable="false" />
     <Property Name="clienten_clientid" Type="int" Nullable="false" />
-    <Property Name="analogeclienten_briefnummer" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="analogeclienten">
-    <Key>
-      <PropertyRef Name="briefnummer" />
-    </Key>
-    <Property Name="briefnummer" Type="int" Nullable="false" />
-    <Property Name="voorkeur1" Type="varchar" MaxLength="255" />
-    <Property Name="voorkeur2" Type="varchar" MaxLength="255" />
-    <Property Name="voorkeur3" Type="varchar" MaxLength="255" />
-    <Property Name="voornaamanaloog" Type="varchar" MaxLength="255" />
-    <Property Name="achternaamanaloog" Type="varchar" MaxLength="255" />
-    <Property Name="tussenvoegselanaloog" Type="varchar" MaxLength="255" />
-    <Property Name="adresanaloog" Type="varchar" MaxLength="255" />
-    <Property Name="woonplaatsanaloog" Type="varchar" MaxLength="255" />
     <Property Name="organisatie_organisatieid" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="AspNetRoles">
@@ -94,41 +76,36 @@
     <Key>
       <PropertyRef Name="clientid" />
     </Key>
-    <Property Name="clientid" Type="int" Nullable="false" />
-    <Property Name="clientnaam" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="clientachternaam" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="clientvoornaam" Type="varchar" MaxLength="255" />
+    <Property Name="clientachternaam" Type="varchar" MaxLength="255" />
     <Property Name="clienttussenvoegsel" Type="varchar" MaxLength="255" />
-    <Property Name="clientwoonplaats" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="clientid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="clientadres" Type="varchar" MaxLength="255" />
-    <Property Name="clientgeslacht" Type="char" MaxLength="1" />
-    <Property Name="organisatie_organisatieid" Type="int" Nullable="false" />
-    <Property Name="voorkeur1" Type="varchar" MaxLength="255" />
-    <Property Name="voorkeur2" Type="varchar" MaxLength="255" />
-    <Property Name="voorkeur3" Type="varchar" MaxLength="255" />
+    <Property Name="clientwoonplaats" Type="varchar" MaxLength="255" />
+    <Property Name="organisatie_organisatieid" Type="int" />
   </EntityType>
   <EntityType Name="organisatie">
     <Key>
       <PropertyRef Name="organisatieid" />
     </Key>
     <Property Name="organisatieid" Type="int" Nullable="false" />
-    <Property Name="organisatienaam" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="organisatieplaats" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="organisatieadres" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="organisatienaam" Type="varchar" MaxLength="255" />
+    <Property Name="organisatieplaats" Type="varchar" MaxLength="255" />
     <Property Name="clientid" Type="int" />
-    <Property Name="briefnummer" Type="int" />
+    <Property Name="activiteitid" Type="int" />
   </EntityType>
-  <Association Name="activiteiten_analogeclienten_fk">
-    <End Role="analogeclienten" Type="Self.analogeclienten" Multiplicity="1" />
-    <End Role="activiteiten" Type="Self.activiteiten" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="analogeclienten">
-        <PropertyRef Name="briefnummer" />
-      </Principal>
-      <Dependent Role="activiteiten">
-        <PropertyRef Name="analogeclienten_briefnummer" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ikwz.dbo.voorkeuren' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="voorkeuren">
+    <Key>
+      <PropertyRef Name="clienten_clientid" />
+    </Key>
+    <Property Name="voorkeur1" Type="varchar" MaxLength="255" />
+    <Property Name="voorkeur2" Type="varchar" MaxLength="255" />
+    <Property Name="voorkeur3" Type="varchar" MaxLength="255" />
+    <Property Name="clientid" Type="int" />
+    <Property Name="clienten_clientid" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="activiteiten_clienten_fk">
     <End Role="clienten" Type="Self.clienten" Multiplicity="1" />
     <End Role="activiteiten" Type="Self.activiteiten" Multiplicity="*" />
@@ -153,20 +130,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="analogeclienten_organisatie_fk">
-    <End Role="organisatie" Type="Self.organisatie" Multiplicity="1" />
-    <End Role="analogeclienten" Type="Self.analogeclienten" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="organisatie">
-        <PropertyRef Name="organisatieid" />
-      </Principal>
-      <Dependent Role="analogeclienten">
-        <PropertyRef Name="organisatie_organisatieid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="clienten_organisatie_fk">
-    <End Role="organisatie" Type="Self.organisatie" Multiplicity="1" />
+    <End Role="organisatie" Type="Self.organisatie" Multiplicity="0..1" />
     <End Role="clienten" Type="Self.clienten" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="organisatie">
@@ -233,10 +198,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="voorkeuren_clienten_fk">
+    <End Role="clienten" Type="Self.clienten" Multiplicity="1" />
+    <End Role="voorkeuren" Type="Self.voorkeuren" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="clienten">
+        <PropertyRef Name="clientid" />
+      </Principal>
+      <Dependent Role="voorkeuren">
+        <PropertyRef Name="clienten_clientid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="ikwzModelStoreContainer">
     <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="activiteiten" EntityType="Self.activiteiten" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="analogeclienten" EntityType="Self.analogeclienten" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -244,10 +220,15 @@
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="clienten" EntityType="Self.clienten" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="organisatie" EntityType="Self.organisatie" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="activiteiten_analogeclienten_fk" Association="Self.activiteiten_analogeclienten_fk">
-      <End Role="analogeclienten" EntitySet="analogeclienten" />
-      <End Role="activiteiten" EntitySet="activiteiten" />
-    </AssociationSet>
+    <EntitySet Name="voorkeuren" EntityType="Self.voorkeuren" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [voorkeuren].[voorkeur1] AS [voorkeur1], 
+    [voorkeuren].[voorkeur2] AS [voorkeur2], 
+    [voorkeuren].[voorkeur3] AS [voorkeur3], 
+    [voorkeuren].[clientid] AS [clientid], 
+    [voorkeuren].[clienten_clientid] AS [clienten_clientid]
+    FROM [dbo].[voorkeuren] AS [voorkeuren]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="activiteiten_clienten_fk" Association="Self.activiteiten_clienten_fk">
       <End Role="clienten" EntitySet="clienten" />
       <End Role="activiteiten" EntitySet="activiteiten" />
@@ -255,10 +236,6 @@
     <AssociationSet Name="activiteiten_organisatie_fk" Association="Self.activiteiten_organisatie_fk">
       <End Role="organisatie" EntitySet="organisatie" />
       <End Role="activiteiten" EntitySet="activiteiten" />
-    </AssociationSet>
-    <AssociationSet Name="analogeclienten_organisatie_fk" Association="Self.analogeclienten_organisatie_fk">
-      <End Role="organisatie" EntitySet="organisatie" />
-      <End Role="analogeclienten" EntitySet="analogeclienten" />
     </AssociationSet>
     <AssociationSet Name="clienten_organisatie_fk" Association="Self.clienten_organisatie_fk">
       <End Role="organisatie" EntitySet="organisatie" />
@@ -279,6 +256,10 @@
     <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="voorkeuren_clienten_fk" Association="Self.voorkeuren_clienten_fk">
+      <End Role="clienten" EntitySet="clienten" />
+      <End Role="voorkeuren" EntitySet="voorkeuren" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
