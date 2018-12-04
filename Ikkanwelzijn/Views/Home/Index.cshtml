@@ -1,0 +1,90 @@
+﻿@model List<Ikkanwelzijn.Models.activiteiten>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row" id="columns">
+    @foreach (var item in Model)
+    {
+        <div class="columtest">
+            <div>
+                <div class="col-sm-4 col-centered">
+                    <div class="colom-1">
+                        <div class="img-boeket1">
+                            <span class="et_pb_image_wrap">
+                                <img src="@item.activiteiturl" style="height: 240px; width: 240px;">
+
+                            </span>
+                        </div>
+
+                        <div class="type-titel">
+                            <div class="et_pb_text_inner">
+                                <h4>@item.activiteitnaam</h4>
+                            </div>
+                        </div>
+
+                        <div class="omschrijving-boeket">
+                            <div class="type-boeket-omschrijving">
+                                <p style="text-align: center;">
+                                    @item.activiteitbeschrijving
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="boeket-prijs">
+                                <p style="text-align: center;">
+                                    € @item.activiteitdatum
+                                </p>
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="boeket-prijs">
+                                <p style="text-align: center;">
+                                    € @item.activiteitplaats
+                                </p>
+
+                            </div>
+                        </div>
+                       
+
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>
+
+
+
+
+
+
+<div class="flowerpower-div">
+    <div class="round-img-div" style="background-color:	 #ffd633;">
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="@Url.Content("~/Content/Images/flower.png")" class="img-responsive" />
+            </div>
+
+            <div class="col-sm-6" style="text-align: center;" id="flowerpover-div">
+                <h2 style="font-family: Courgette, cursive; font-size: 50px;">Ik kan welzijn</h2><br />
+                <p>
+                    Welkom op de site van Ik kan welzijn<br />
+                    
+                </p>
+
+               
+            </div>
+        </div>
+    </div>
+</div>

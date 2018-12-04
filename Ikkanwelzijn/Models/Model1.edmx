@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ikwzModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="activiteiten">
+          <Key>
+            <PropertyRef Name="activiteitid" />
+          </Key>
+          <Property Name="activiteitnaam" Type="varchar" MaxLength="255" />
+          <Property Name="activiteitid" Type="int" Nullable="false" />
+          <Property Name="activiteitdatum" Type="date" />
+          <Property Name="activiteitplaats" Type="varchar" MaxLength="255" />
+          <Property Name="activiteitbeschrijving" Type="varchar" MaxLength="255" />
+          <Property Name="activiteiturl" Type="varchar" MaxLength="255" />
+          <Property Name="organisatie_organisatieid" Type="int" Nullable="false" />
+          <Property Name="clienten_clientid" Type="int" Nullable="false" />
+          <Property Name="analogeclienten_briefnummer" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="analogeclienten">
+          <Key>
+            <PropertyRef Name="briefnummer" />
+          </Key>
+          <Property Name="briefnummer" Type="int" Nullable="false" />
+          <Property Name="voorkeur1" Type="varchar" MaxLength="255" />
+          <Property Name="voorkeur2" Type="varchar" MaxLength="255" />
+          <Property Name="voorkeur3" Type="varchar" MaxLength="255" />
+          <Property Name="voornaamanaloog" Type="varchar" MaxLength="255" />
+          <Property Name="achternaamanaloog" Type="varchar" MaxLength="255" />
+          <Property Name="tussenvoegselanaloog" Type="varchar" MaxLength="255" />
+          <Property Name="adresanaloog" Type="varchar" MaxLength="255" />
+          <Property Name="woonplaatsanaloog" Type="varchar" MaxLength="255" />
+          <Property Name="organisatie_organisatieid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clienten">
+          <Key>
+            <PropertyRef Name="clientid" />
+          </Key>
+          <Property Name="clientid" Type="int" Nullable="false" />
+          <Property Name="clientnaam" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="clientachternaam" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="clienttussenvoegsel" Type="varchar" MaxLength="255" />
+          <Property Name="clientwoonplaats" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="clientadres" Type="varchar" MaxLength="255" />
+          <Property Name="clientgeslacht" Type="char" MaxLength="1" />
+          <Property Name="organisatie_organisatieid" Type="int" Nullable="false" />
+          <Property Name="voorkeur1" Type="varchar" MaxLength="255" />
+          <Property Name="voorkeur2" Type="varchar" MaxLength="255" />
+          <Property Name="voorkeur3" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="organisatie">
+          <Key>
+            <PropertyRef Name="organisatieid" />
+          </Key>
+          <Property Name="organisatieid" Type="int" Nullable="false" />
+          <Property Name="organisatienaam" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="organisatieplaats" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="organisatieadres" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="clientid" Type="int" />
+          <Property Name="briefnummer" Type="int" />
+        </EntityType>
+        <Association Name="activiteiten_analogeclienten_fk">
+          <End Role="analogeclienten" Type="Self.analogeclienten" Multiplicity="1" />
+          <End Role="activiteiten" Type="Self.activiteiten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="analogeclienten">
+              <PropertyRef Name="briefnummer" />
+            </Principal>
+            <Dependent Role="activiteiten">
+              <PropertyRef Name="analogeclienten_briefnummer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="activiteiten_clienten_fk">
+          <End Role="clienten" Type="Self.clienten" Multiplicity="1" />
+          <End Role="activiteiten" Type="Self.activiteiten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clienten">
+              <PropertyRef Name="clientid" />
+            </Principal>
+            <Dependent Role="activiteiten">
+              <PropertyRef Name="clienten_clientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="activiteiten_organisatie_fk">
+          <End Role="organisatie" Type="Self.organisatie" Multiplicity="1" />
+          <End Role="activiteiten" Type="Self.activiteiten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organisatie">
+              <PropertyRef Name="organisatieid" />
+            </Principal>
+            <Dependent Role="activiteiten">
+              <PropertyRef Name="organisatie_organisatieid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="analogeclienten_organisatie_fk">
+          <End Role="organisatie" Type="Self.organisatie" Multiplicity="1" />
+          <End Role="analogeclienten" Type="Self.analogeclienten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organisatie">
+              <PropertyRef Name="organisatieid" />
+            </Principal>
+            <Dependent Role="analogeclienten">
+              <PropertyRef Name="organisatie_organisatieid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="clienten_organisatie_fk">
+          <End Role="organisatie" Type="Self.organisatie" Multiplicity="1" />
+          <End Role="clienten" Type="Self.clienten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organisatie">
+              <PropertyRef Name="organisatieid" />
+            </Principal>
+            <Dependent Role="clienten">
+              <PropertyRef Name="organisatie_organisatieid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ikwzModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="activiteiten" EntityType="Self.activiteiten" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="analogeclienten" EntityType="Self.analogeclienten" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clienten" EntityType="Self.clienten" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="organisatie" EntityType="Self.organisatie" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="activiteiten_analogeclienten_fk" Association="Self.activiteiten_analogeclienten_fk">
+            <End Role="analogeclienten" EntitySet="analogeclienten" />
+            <End Role="activiteiten" EntitySet="activiteiten" />
+          </AssociationSet>
+          <AssociationSet Name="activiteiten_clienten_fk" Association="Self.activiteiten_clienten_fk">
+            <End Role="clienten" EntitySet="clienten" />
+            <End Role="activiteiten" EntitySet="activiteiten" />
+          </AssociationSet>
+          <AssociationSet Name="activiteiten_organisatie_fk" Association="Self.activiteiten_organisatie_fk">
+            <End Role="organisatie" EntitySet="organisatie" />
+            <End Role="activiteiten" EntitySet="activiteiten" />
+          </AssociationSet>
+          <AssociationSet Name="analogeclienten_organisatie_fk" Association="Self.analogeclienten_organisatie_fk">
+            <End Role="organisatie" EntitySet="organisatie" />
+            <End Role="analogeclienten" EntitySet="analogeclienten" />
+          </AssociationSet>
+          <AssociationSet Name="clienten_organisatie_fk" Association="Self.clienten_organisatie_fk">
+            <End Role="organisatie" EntitySet="organisatie" />
+            <End Role="clienten" EntitySet="clienten" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ikwzModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="activiteiten">
+          <Key>
+            <PropertyRef Name="activiteitid" />
+          </Key>
+          <Property Name="activiteitnaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="activiteitid" Type="Int32" Nullable="false" />
+          <Property Name="activiteitdatum" Type="DateTime" Precision="0" />
+          <Property Name="activiteitplaats" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="activiteitbeschrijving" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="activiteiturl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="organisatie_organisatieid" Type="Int32" Nullable="false" />
+          <Property Name="clienten_clientid" Type="Int32" Nullable="false" />
+          <Property Name="analogeclienten_briefnummer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="analogeclienten" Relationship="Self.activiteiten_analogeclienten_fk" FromRole="activiteiten" ToRole="analogeclienten" />
+          <NavigationProperty Name="clienten" Relationship="Self.activiteiten_clienten_fk" FromRole="activiteiten" ToRole="clienten" />
+          <NavigationProperty Name="organisatie" Relationship="Self.activiteiten_organisatie_fk" FromRole="activiteiten" ToRole="organisatie" />
+        </EntityType>
+        <EntityType Name="analogeclienten">
+          <Key>
+            <PropertyRef Name="briefnummer" />
+          </Key>
+          <Property Name="briefnummer" Type="Int32" Nullable="false" />
+          <Property Name="voorkeur1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="voorkeur2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="voorkeur3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="voornaamanaloog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="achternaamanaloog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="tussenvoegselanaloog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="adresanaloog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="woonplaatsanaloog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="organisatie_organisatieid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="activiteiten" Relationship="Self.activiteiten_analogeclienten_fk" FromRole="analogeclienten" ToRole="activiteiten" />
+          <NavigationProperty Name="organisatie" Relationship="Self.analogeclienten_organisatie_fk" FromRole="analogeclienten" ToRole="organisatie" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="clienten">
+          <Key>
+            <PropertyRef Name="clientid" />
+          </Key>
+          <Property Name="clientid" Type="Int32" Nullable="false" />
+          <Property Name="clientnaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clientachternaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clienttussenvoegsel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="clientwoonplaats" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clientadres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="clientgeslacht" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="organisatie_organisatieid" Type="Int32" Nullable="false" />
+          <Property Name="voorkeur1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="voorkeur2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="voorkeur3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="activiteiten" Relationship="Self.activiteiten_clienten_fk" FromRole="clienten" ToRole="activiteiten" />
+          <NavigationProperty Name="organisatie" Relationship="Self.clienten_organisatie_fk" FromRole="clienten" ToRole="organisatie" />
+        </EntityType>
+        <EntityType Name="organisatie">
+          <Key>
+            <PropertyRef Name="organisatieid" />
+          </Key>
+          <Property Name="organisatieid" Type="Int32" Nullable="false" />
+          <Property Name="organisatienaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="organisatieplaats" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="organisatieadres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clientid" Type="Int32" />
+          <Property Name="briefnummer" Type="Int32" />
+          <NavigationProperty Name="activiteiten" Relationship="Self.activiteiten_organisatie_fk" FromRole="organisatie" ToRole="activiteiten" />
+          <NavigationProperty Name="analogeclienten" Relationship="Self.analogeclienten_organisatie_fk" FromRole="organisatie" ToRole="analogeclienten" />
+          <NavigationProperty Name="clienten" Relationship="Self.clienten_organisatie_fk" FromRole="organisatie" ToRole="clienten" />
+        </EntityType>
+        <Association Name="activiteiten_analogeclienten_fk">
+          <End Role="analogeclienten" Type="Self.analogeclienten" Multiplicity="1" />
+          <End Role="activiteiten" Type="Self.activiteiten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="analogeclienten">
+              <PropertyRef Name="briefnummer" />
+            </Principal>
+            <Dependent Role="activiteiten">
+              <PropertyRef Name="analogeclienten_briefnummer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="activiteiten_clienten_fk">
+          <End Role="clienten" Type="Self.clienten" Multiplicity="1" />
+          <End Role="activiteiten" Type="Self.activiteiten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clienten">
+              <PropertyRef Name="clientid" />
+            </Principal>
+            <Dependent Role="activiteiten">
+              <PropertyRef Name="clienten_clientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="activiteiten_organisatie_fk">
+          <End Role="organisatie" Type="Self.organisatie" Multiplicity="1" />
+          <End Role="activiteiten" Type="Self.activiteiten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organisatie">
+              <PropertyRef Name="organisatieid" />
+            </Principal>
+            <Dependent Role="activiteiten">
+              <PropertyRef Name="organisatie_organisatieid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="analogeclienten_organisatie_fk">
+          <End Role="organisatie" Type="Self.organisatie" Multiplicity="1" />
+          <End Role="analogeclienten" Type="Self.analogeclienten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organisatie">
+              <PropertyRef Name="organisatieid" />
+            </Principal>
+            <Dependent Role="analogeclienten">
+              <PropertyRef Name="organisatie_organisatieid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="clienten_organisatie_fk">
+          <End Role="organisatie" Type="Self.organisatie" Multiplicity="1" />
+          <End Role="clienten" Type="Self.clienten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organisatie">
+              <PropertyRef Name="organisatieid" />
+            </Principal>
+            <Dependent Role="clienten">
+              <PropertyRef Name="organisatie_organisatieid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ikwzEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="activiteiten" EntityType="Self.activiteiten" />
+          <EntitySet Name="analogeclienten" EntityType="Self.analogeclienten" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="clienten" EntityType="Self.clienten" />
+          <EntitySet Name="organisatie" EntityType="Self.organisatie" />
+          <AssociationSet Name="activiteiten_analogeclienten_fk" Association="Self.activiteiten_analogeclienten_fk">
+            <End Role="analogeclienten" EntitySet="analogeclienten" />
+            <End Role="activiteiten" EntitySet="activiteiten" />
+          </AssociationSet>
+          <AssociationSet Name="activiteiten_clienten_fk" Association="Self.activiteiten_clienten_fk">
+            <End Role="clienten" EntitySet="clienten" />
+            <End Role="activiteiten" EntitySet="activiteiten" />
+          </AssociationSet>
+          <AssociationSet Name="activiteiten_organisatie_fk" Association="Self.activiteiten_organisatie_fk">
+            <End Role="organisatie" EntitySet="organisatie" />
+            <End Role="activiteiten" EntitySet="activiteiten" />
+          </AssociationSet>
+          <AssociationSet Name="analogeclienten_organisatie_fk" Association="Self.analogeclienten_organisatie_fk">
+            <End Role="organisatie" EntitySet="organisatie" />
+            <End Role="analogeclienten" EntitySet="analogeclienten" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="clienten_organisatie_fk" Association="Self.clienten_organisatie_fk">
+            <End Role="organisatie" EntitySet="organisatie" />
+            <End Role="clienten" EntitySet="clienten" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ikwzModelStoreContainer" CdmEntityContainer="ikwzEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="ikwzModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="activiteiten">
+            <EntityTypeMapping TypeName="ikwzModel.activiteiten">
+              <MappingFragment StoreEntitySet="activiteiten">
+                <ScalarProperty Name="activiteitnaam" ColumnName="activiteitnaam" />
+                <ScalarProperty Name="activiteitid" ColumnName="activiteitid" />
+                <ScalarProperty Name="activiteitdatum" ColumnName="activiteitdatum" />
+                <ScalarProperty Name="activiteitplaats" ColumnName="activiteitplaats" />
+                <ScalarProperty Name="activiteitbeschrijving" ColumnName="activiteitbeschrijving" />
+                <ScalarProperty Name="activiteiturl" ColumnName="activiteiturl" />
+                <ScalarProperty Name="organisatie_organisatieid" ColumnName="organisatie_organisatieid" />
+                <ScalarProperty Name="clienten_clientid" ColumnName="clienten_clientid" />
+                <ScalarProperty Name="analogeclienten_briefnummer" ColumnName="analogeclienten_briefnummer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="analogeclienten">
+            <EntityTypeMapping TypeName="ikwzModel.analogeclienten">
+              <MappingFragment StoreEntitySet="analogeclienten">
+                <ScalarProperty Name="briefnummer" ColumnName="briefnummer" />
+                <ScalarProperty Name="voorkeur1" ColumnName="voorkeur1" />
+                <ScalarProperty Name="voorkeur2" ColumnName="voorkeur2" />
+                <ScalarProperty Name="voorkeur3" ColumnName="voorkeur3" />
+                <ScalarProperty Name="voornaamanaloog" ColumnName="voornaamanaloog" />
+                <ScalarProperty Name="achternaamanaloog" ColumnName="achternaamanaloog" />
+                <ScalarProperty Name="tussenvoegselanaloog" ColumnName="tussenvoegselanaloog" />
+                <ScalarProperty Name="adresanaloog" ColumnName="adresanaloog" />
+                <ScalarProperty Name="woonplaatsanaloog" ColumnName="woonplaatsanaloog" />
+                <ScalarProperty Name="organisatie_organisatieid" ColumnName="organisatie_organisatieid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="ikwzModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="ikwzModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="ikwzModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="ikwzModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clienten">
+            <EntityTypeMapping TypeName="ikwzModel.clienten">
+              <MappingFragment StoreEntitySet="clienten">
+                <ScalarProperty Name="clientid" ColumnName="clientid" />
+                <ScalarProperty Name="clientnaam" ColumnName="clientnaam" />
+                <ScalarProperty Name="clientachternaam" ColumnName="clientachternaam" />
+                <ScalarProperty Name="clienttussenvoegsel" ColumnName="clienttussenvoegsel" />
+                <ScalarProperty Name="clientwoonplaats" ColumnName="clientwoonplaats" />
+                <ScalarProperty Name="clientadres" ColumnName="clientadres" />
+                <ScalarProperty Name="clientgeslacht" ColumnName="clientgeslacht" />
+                <ScalarProperty Name="organisatie_organisatieid" ColumnName="organisatie_organisatieid" />
+                <ScalarProperty Name="voorkeur1" ColumnName="voorkeur1" />
+                <ScalarProperty Name="voorkeur2" ColumnName="voorkeur2" />
+                <ScalarProperty Name="voorkeur3" ColumnName="voorkeur3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organisatie">
+            <EntityTypeMapping TypeName="ikwzModel.organisatie">
+              <MappingFragment StoreEntitySet="organisatie">
+                <ScalarProperty Name="organisatieid" ColumnName="organisatieid" />
+                <ScalarProperty Name="organisatienaam" ColumnName="organisatienaam" />
+                <ScalarProperty Name="organisatieplaats" ColumnName="organisatieplaats" />
+                <ScalarProperty Name="organisatieadres" ColumnName="organisatieadres" />
+                <ScalarProperty Name="clientid" ColumnName="clientid" />
+                <ScalarProperty Name="briefnummer" ColumnName="briefnummer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="ikwzModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
