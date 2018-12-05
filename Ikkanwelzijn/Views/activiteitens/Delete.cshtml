@@ -1,7 +1,7 @@
 ﻿@model Ikkanwelzijn.Models.activiteiten
 
 @{
-    
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -42,35 +42,11 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.activiteitbeschrijving)
+                @Html.DisplayNameFor(model => model.clienten.clientvoornaam)
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.activiteitbeschrijving)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.activiteiturl)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.activiteiturl)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.analogeclienten.voorkeur1)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.analogeclienten.voorkeur1)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.clienten.clientnaam)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.clienten.clientnaam)
+                @Html.DisplayFor(model => model.clienten.clientvoornaam)
             </dd>
     
             <dt>

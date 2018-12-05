@@ -39,7 +39,7 @@ namespace Ikkanwelzijn.Controllers
         // GET: activiteitens/Create
         public ActionResult Create()
         {
-            ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientnaam");
+            ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientvoornaam");
             ViewBag.organisatie_organisatieid = new SelectList(db.organisatie, "organisatieid", "organisatienaam");
             return View();
         }
@@ -49,7 +49,7 @@ namespace Ikkanwelzijn.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "activiteitnaam,activiteitid,activiteitdatum,activiteitplaats,activiteitbeschrijving,activiteiturl,organisatie_organisatieid,clienten_clientid,analogeclienten_briefnummer")] activiteiten activiteiten)
+        public ActionResult Create([Bind(Include = "activiteitid,activiteitnaam,activiteitdatum,activiteitplaats,clienten_clientid,organisatie_organisatieid")] activiteiten activiteiten)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace Ikkanwelzijn.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientnaam", activiteiten.clienten_clientid);
+            ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientvoornaam", activiteiten.clienten_clientid);
             ViewBag.organisatie_organisatieid = new SelectList(db.organisatie, "organisatieid", "organisatienaam", activiteiten.organisatie_organisatieid);
             return View(activiteiten);
         }
@@ -75,7 +75,7 @@ namespace Ikkanwelzijn.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientnaam", activiteiten.clienten_clientid);
+            ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientvoornaam", activiteiten.clienten_clientid);
             ViewBag.organisatie_organisatieid = new SelectList(db.organisatie, "organisatieid", "organisatienaam", activiteiten.organisatie_organisatieid);
             return View(activiteiten);
         }
@@ -85,7 +85,7 @@ namespace Ikkanwelzijn.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "activiteitnaam,activiteitid,activiteitdatum,activiteitplaats,activiteitbeschrijving,activiteiturl,organisatie_organisatieid,clienten_clientid,analogeclienten_briefnummer")] activiteiten activiteiten)
+        public ActionResult Edit([Bind(Include = "activiteitid,activiteitnaam,activiteitdatum,activiteitplaats,clienten_clientid,organisatie_organisatieid")] activiteiten activiteiten)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace Ikkanwelzijn.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientnaam", activiteiten.clienten_clientid);
+            ViewBag.clienten_clientid = new SelectList(db.clienten, "clientid", "clientvoornaam", activiteiten.clienten_clientid);
             ViewBag.organisatie_organisatieid = new SelectList(db.organisatie, "organisatieid", "organisatienaam", activiteiten.organisatie_organisatieid);
             return View(activiteiten);
         }

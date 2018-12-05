@@ -1,7 +1,7 @@
 ﻿@model Ikkanwelzijn.Models.activiteiten
 
 @{
-   
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -20,6 +20,8 @@
             <h4>activiteiten</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.activiteitid)
+    
             <div class="form-group">
                 @Html.LabelFor(model => model.activiteitnaam, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -27,8 +29,6 @@
                     @Html.ValidationMessageFor(model => model.activiteitnaam, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
-            @Html.HiddenFor(model => model.activiteitid)
     
             <div class="form-group">
                 @Html.LabelFor(model => model.activiteitdatum, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -47,30 +47,6 @@
             </div>
     
             <div class="form-group">
-                @Html.LabelFor(model => model.activiteitbeschrijving, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.activiteitbeschrijving, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.activiteitbeschrijving, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.activiteiturl, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.activiteiturl, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.activiteiturl, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.organisatie_organisatieid, "organisatie_organisatieid", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("organisatie_organisatieid", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.organisatie_organisatieid, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
                 @Html.LabelFor(model => model.clienten_clientid, "clienten_clientid", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("clienten_clientid", null, htmlAttributes: new { @class = "form-control" })
@@ -79,10 +55,10 @@
             </div>
     
             <div class="form-group">
-                @Html.LabelFor(model => model.analogeclienten_briefnummer, "analogeclienten_briefnummer", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.organisatie_organisatieid, "organisatie_organisatieid", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("analogeclienten_briefnummer", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.analogeclienten_briefnummer, "", new { @class = "text-danger" })
+                    @Html.DropDownList("organisatie_organisatieid", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.organisatie_organisatieid, "", new { @class = "text-danger" })
                 </div>
             </div>
     

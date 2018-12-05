@@ -333,11 +333,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Roles\index.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
-    <Content Include="Views\clientens\Create.cshtml" />
-    <Content Include="Views\clientens\Delete.cshtml" />
-    <Content Include="Views\clientens\Details.cshtml" />
-    <Content Include="Views\clientens\Edit.cshtml" />
-    <Content Include="Views\clientens\Index.cshtml" />
     <Content Include="Views\activiteitens\Create.cshtml" />
     <Content Include="Views\activiteitens\Delete.cshtml" />
     <Content Include="Views\activiteitens\Details.cshtml" />
