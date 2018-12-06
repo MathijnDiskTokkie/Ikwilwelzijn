@@ -43,10 +43,9 @@
                                 @Html.ActionLink("Activiteiten toevoegen", "Create", "activiteitens")
                             </li>
                         }
-                        <li class="nav-item">
-                            @Html.Partial("_LoginPartial")
-                        </li>
                     </ul>
+
+                    @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </nav>
@@ -63,13 +62,13 @@
 
 
 
-    <div class="container body-content">
+    <div class="container content">
         @RenderBody()
     </div>
 
     <footer>
         <div class="container">
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-3 text-center">
                     <div class="heading text-center">Tekst</div>
                     
@@ -104,7 +103,7 @@
                     <li><a href="#">Link</a></li>
                     <li><a href="#">Link</a></li>
                 </div>
-            </div>
+            </div>-->
             <div class="line"></div>
             &copy; Copyright @DateTime.Now.Year  - IkKanWelzijn.
 
