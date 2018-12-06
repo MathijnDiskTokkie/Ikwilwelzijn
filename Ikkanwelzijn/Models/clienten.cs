@@ -19,14 +19,7 @@ namespace Ikkanwelzijn.Models
         {
             this.activiteiten = new HashSet<activiteiten>();
         }
-        public clienten(string _clientvoornaam, string _clientachternaam, string _clienttussenvoegsel, string _clientadres, string _clientwoonplaats)
-        {
-            this.clientvoornaam = _clientvoornaam;
-            this.clientachternaam = _clientachternaam;
-            this.clienttussenvoegsel = _clienttussenvoegsel;
-            this.clientadres = _clientadres;
-            this.clientwoonplaats = _clientwoonplaats;
-        }    
+    
         public string clientvoornaam { get; set; }
         public string clientachternaam { get; set; }
         public string clienttussenvoegsel { get; set; }

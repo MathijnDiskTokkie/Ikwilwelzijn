@@ -26,6 +26,7 @@
           <Property Name="clienten_clientid" Type="int" Nullable="false" />
           <Property Name="organisatie_organisatieid" Type="int" Nullable="false" />
           <Property Name="url" Type="varchar(max)" />
+          <Property Name="categorie" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -295,6 +296,7 @@ warning 6002: The table/view 'ikwz.dbo.voorkeuren' does not have a primary key d
           <NavigationProperty Name="clienten" Relationship="Self.activiteiten_clienten_fk" FromRole="activiteiten" ToRole="clienten" />
           <NavigationProperty Name="organisatie" Relationship="Self.activiteiten_organisatie_fk" FromRole="activiteiten" ToRole="organisatie" />
           <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="categorie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -521,6 +523,7 @@ warning 6002: The table/view 'ikwz.dbo.voorkeuren' does not have a primary key d
           <EntitySetMapping Name="activiteiten">
             <EntityTypeMapping TypeName="ikwzModel.activiteiten">
               <MappingFragment StoreEntitySet="activiteiten">
+                <ScalarProperty Name="categorie" ColumnName="categorie" />
                 <ScalarProperty Name="url" ColumnName="url" />
                 <ScalarProperty Name="activiteitid" ColumnName="activiteitid" />
                 <ScalarProperty Name="activiteitnaam" ColumnName="activiteitnaam" />

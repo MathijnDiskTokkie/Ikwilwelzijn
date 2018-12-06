@@ -14,6 +14,7 @@
     <EntitySetMapping Name="activiteiten">
       <EntityTypeMapping TypeName="ikwzModel.activiteiten">
         <MappingFragment StoreEntitySet="activiteiten">
+          <ScalarProperty Name="categorie" ColumnName="categorie" />
           <ScalarProperty Name="url" ColumnName="url" />
           <ScalarProperty Name="activiteitid" ColumnName="activiteitid" />
           <ScalarProperty Name="activiteitnaam" ColumnName="activiteitnaam" />

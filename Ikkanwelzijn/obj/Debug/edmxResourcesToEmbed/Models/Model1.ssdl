@@ -21,6 +21,7 @@
     <Property Name="clienten_clientid" Type="int" Nullable="false" />
     <Property Name="organisatie_organisatieid" Type="int" Nullable="false" />
     <Property Name="url" Type="varchar(max)" />
+    <Property Name="categorie" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
