@@ -38,6 +38,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.organisatie.organisatienaam)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.categorie)
+            </th>
             <th></th>
         </tr>
     
@@ -65,9 +68,12 @@
                 @Html.DisplayFor(modelItem => item.organisatie.organisatienaam)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.activiteitid }) |
-                @Html.ActionLink("Details", "Details", new { id=item.activiteitid }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.activiteitid })
+                @Html.DisplayNameFor(model => model.categorie)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.activiteitid }) |
+                @Html.ActionLink("Details", "Details", new { id = item.activiteitid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.activiteitid })
             </td>
         </tr>
     }
