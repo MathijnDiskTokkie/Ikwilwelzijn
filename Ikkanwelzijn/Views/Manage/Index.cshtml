@@ -1,14 +1,15 @@
 ﻿@model Ikkanwelzijn.Models.IndexViewModel
+@using Microsoft.AspNet.Identity;
 @{
-    ViewBag.Title = "Manage";
+    ViewBag.Title = "Account Instellingen";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div class="heading text-center">@ViewBag.Title</div>
+<div class="heading-small text-center">@User.Identity.GetUserName()</div>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Change your account settings</h4>
-    <hr />
+
     <dl class="dl-horizontal">
         <dt>Password:</dt>
         <dd>
