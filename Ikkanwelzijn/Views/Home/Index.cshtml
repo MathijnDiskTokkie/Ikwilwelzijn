@@ -1,6 +1,7 @@
 ﻿@model List<Ikkanwelzijn.Models.activiteiten>
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Home Page";
 }
 
@@ -64,27 +65,26 @@
 
 </div>
 
-
-
-
-
-
-<div class="flowerpower-div">
-    <div class="round-img-div" style="background-color:	 #ffd633;">
-        <div class="row">
-            <div class="col-sm-6">
-                <img src="@Url.Content("~/Content/Images/flower.png")" class="img-responsive" />
-            </div>
-
-            <div class="col-sm-6" style="text-align: center;" id="flowerpover-div">
-                <h2 style="font-family: Courgette, cursive; font-size: 50px;">Ik kan welzijn</h2><br />
-                <p>
-                    Welkom op de site van Ik kan welzijn<br />
-                    
-                </p>
-
-               
-            </div>
+<div class="container content">
+    <div class="heading text-center">Waarom IKWZ?</div>
+    <div class="row">
+        <div class="col-4 text-center">
+            <div class="content-icon"><i class="fas fa-heartbeat fa-4x"></i></div>
+            <div class="content-title">Monitoring</div>
+            <div class="content-text">Tekst hier.</div>
+        </div>
+        <div class="col-4 text-center">
+            <div class="content-icon"><i class="fas fa-universal-access fa-4x"></i></div>
+            <div class="content-title">Live toegang</div>
+            <div class="content-text">Tekst hier.</div>
+        </div>
+        <div class="col-4 text-center">
+            <div class="content-icon"><i class="fas fa-headset fa-4x"></i></div>
+            <div class="content-title">Support</div>
+            <div class="content-text">Tekst hier.</div>
         </div>
     </div>
 </div>
+
+
+

@@ -20,6 +20,7 @@ namespace Ikkanwelzijn.Models
         public string activiteitplaats { get; set; }
         public int clienten_clientid { get; set; }
         public int organisatie_organisatieid { get; set; }
+        public string url { get; set; }
     
         public virtual clienten clienten { get; set; }
         public virtual organisatie organisatie { get; set; }

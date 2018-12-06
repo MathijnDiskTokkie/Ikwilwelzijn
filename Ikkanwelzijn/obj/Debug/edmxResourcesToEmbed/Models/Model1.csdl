@@ -22,6 +22,7 @@
     <Property Name="organisatie_organisatieid" Type="Int32" Nullable="false" />
     <NavigationProperty Name="clienten" Relationship="Self.activiteiten_clienten_fk" FromRole="activiteiten" ToRole="clienten" />
     <NavigationProperty Name="organisatie" Relationship="Self.activiteiten_organisatie_fk" FromRole="activiteiten" ToRole="organisatie" />
+    <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>

@@ -262,6 +262,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="ikwz\assets\images\headerimg_1.jpg" />
+    <Content Include="ikwz\assets\images\headerimg_2.jpg" />
+    <Content Include="ikwz\assets\images\headerimg_3.jpg" />
+    <Content Include="ikwz\assets\images\ikwz_logo.svg" />
+    <Content Include="ikwz\assets\style\fontawesome.min.css" />
+    <Content Include="ikwz\assets\style\global.css" />
+    <Content Include="ikwz\assets\webfonts\fa-brands-400.svg" />
+    <Content Include="ikwz\assets\webfonts\fa-light-300.svg" />
+    <Content Include="ikwz\assets\webfonts\fa-regular-400.svg" />
+    <Content Include="ikwz\assets\webfonts\fa-solid-900.svg" />
+    <Content Include="ikwz\contact.html" />
+    <Content Include="ikwz\index.html" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -284,6 +296,27 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="ikwz\.DS_Store" />
+    <Content Include="ikwz\assets\.DS_Store" />
+    <Content Include="ikwz\assets\style\.DS_Store" />
+    <Content Include="ikwz\assets\style\_input\global.scss" />
+    <Content Include="ikwz\assets\style\_input\variables.scss" />
+    <Content Include="ikwz\assets\webfonts\fa-brands-400.eot" />
+    <Content Include="ikwz\assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="ikwz\assets\webfonts\fa-brands-400.woff" />
+    <Content Include="ikwz\assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="ikwz\assets\webfonts\fa-light-300.eot" />
+    <Content Include="ikwz\assets\webfonts\fa-light-300.ttf" />
+    <Content Include="ikwz\assets\webfonts\fa-light-300.woff" />
+    <Content Include="ikwz\assets\webfonts\fa-light-300.woff2" />
+    <Content Include="ikwz\assets\webfonts\fa-regular-400.eot" />
+    <Content Include="ikwz\assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="ikwz\assets\webfonts\fa-regular-400.woff" />
+    <Content Include="ikwz\assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="ikwz\assets\webfonts\fa-solid-900.eot" />
+    <Content Include="ikwz\assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="ikwz\assets\webfonts\fa-solid-900.woff" />
+    <Content Include="ikwz\assets\webfonts\fa-solid-900.woff2" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

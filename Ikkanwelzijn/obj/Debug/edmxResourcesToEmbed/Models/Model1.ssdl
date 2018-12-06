@@ -20,6 +20,7 @@
     <Property Name="activiteitplaats" Type="varchar" MaxLength="255" />
     <Property Name="clienten_clientid" Type="int" Nullable="false" />
     <Property Name="organisatie_organisatieid" Type="int" Nullable="false" />
+    <Property Name="url" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
