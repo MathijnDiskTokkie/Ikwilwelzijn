@@ -28,15 +28,16 @@
                         <li class="nav-item active">
                             @Html.ActionLink("Home", "Index", "Home")
                         </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             @Html.ActionLink("Over ons", "About", "Home")
+                        </li>-->
+                        <li class="nav-item">
+                            @Html.ActionLink("Activiteiten", "Index", "activiteitens")
                         </li>
                         <li class="nav-item">
                             @Html.ActionLink("Contact", "Contact", "Home")
                         </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Activiteiten", "Index", "activiteitens")
-                        </li>
+
                         @if (User.IsInRole("Manager"))
                         {
                             <li class="nav-item">
@@ -54,7 +55,7 @@
             <div class="banner-content">
                 <div class="banner-title">Ik kan welzijn.</div>
                 <div class="banner-description">IkkanWelzijn is een platform met een unieke samenwerking tussen zorginstellingen, cultuur-natuurinstellingen, verenigingen, gemeenten en onderwijsinstellingen in Noordoost- Twente.</div>
-                <a class="button color-purple" href=@Url.Action("Contact", "Home")>Meer informatie</a>
+                <a class="button color-purple" href=@Url.Action("About", "Home")>Meer informatie</a>
             </div>
         </div>
         <div class="topContent"></div>
