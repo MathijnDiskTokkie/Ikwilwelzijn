@@ -1,0 +1,58 @@
+﻿@model Ikkanwelzijn.Models.organisatie
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>organisatie</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.organisatienaam)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.organisatienaam)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.organisatieplaats)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.organisatieplaats)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.clientid)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clientid)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.activiteitid)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.activiteitid)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.organisatieid }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

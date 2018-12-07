@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Ikkanwelzijn.Models.organisatie>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.organisatienaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.organisatieplaats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clientid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.activiteitid)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.organisatienaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.organisatieplaats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clientid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.activiteitid)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.organisatieid }) |
+                @Html.ActionLink("Details", "Details", new { id=item.organisatieid }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.organisatieid })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

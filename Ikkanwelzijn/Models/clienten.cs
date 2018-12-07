@@ -14,12 +14,23 @@ namespace Ikkanwelzijn.Models
     
     public partial class clienten
     {
+        private string clientnaam;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public clienten()
         {
             this.activiteiten = new HashSet<activiteiten>();
         }
-    
+
+        public clienten(string clientnaam, string clientachternaam, string clienttussenvoegsel, string clientadres, string clientwoonplaats)
+        {
+            this.clientnaam = clientnaam;
+            this.clientachternaam = clientachternaam;
+            this.clienttussenvoegsel = clienttussenvoegsel;
+            this.clientadres = clientadres;
+            this.clientwoonplaats = clientwoonplaats;
+        }
+
         public string clientvoornaam { get; set; }
         public string clientachternaam { get; set; }
         public string clienttussenvoegsel { get; set; }
